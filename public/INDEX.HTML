@@ -1,0 +1,114 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Study Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">STUDY SMARTER</p>
+        <h1>AI Study Assistant</h1>
+        <p class="subtitle">
+          Ask questions, simplify difficult topics, summarize content,
+          or generate practice questions.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero-card">
+        <div class="hero-icon">✦</div>
+        <div>
+          <h2>What would you like to study?</h2>
+          <p>
+            Enter a topic, question, notes, or instructions below.
+          </p>
+        </div>
+      </section>
+
+      <section class="prompt-card">
+        <label for="prompt">Your prompt</label>
+
+        <textarea
+          id="prompt"
+          maxlength="5000"
+          placeholder="Example: Explain photosynthesis in simple terms and give me 5 practice questions."
+        ></textarea>
+
+        <div class="input-footer">
+          <span id="characterCount">0 / 5000</span>
+          <button id="clearButton" class="secondary-button" type="button">
+            Clear
+          </button>
+        </div>
+
+        <div id="validationMessage" class="message error hidden"></div>
+
+        <button id="askButton" class="primary-button" type="button">
+          <span id="buttonText">Ask AI</span>
+          <span id="spinner" class="spinner hidden"></span>
+        </button>
+      </section>
+
+      <section class="quick-prompts">
+        <h3>Try a quick prompt</h3>
+
+        <div class="prompt-buttons">
+          <button class="quick-button" data-prompt="Explain Newton's three laws of motion in simple language with one real-world example for each.">
+            Explain a concept
+          </button>
+
+          <button class="quick-button" data-prompt="Summarize the following study topic into concise revision notes: The causes and effects of climate change.">
+            Make revision notes
+          </button>
+
+          <button class="quick-button" data-prompt="Create 5 multiple-choice practice questions about basic JavaScript, including the correct answer and a short explanation.">
+            Generate a quiz
+          </button>
+
+          <button class="quick-button" data-prompt="Give me a step-by-step study plan for learning basic mathematics in 30 days.">
+            Create a study plan
+          </button>
+        </div>
+      </section>
+
+      <section id="responseSection" class="response-card hidden">
+        <div class="response-header">
+          <div>
+            <p class="eyebrow">AI RESPONSE</p>
+            <h2>Study Assistant</h2>
+          </div>
+
+          <button id="copyButton" class="secondary-button" type="button">
+            Copy
+          </button>
+        </div>
+
+        <div id="response" class="response-content"></div>
+      </section>
+
+      <section id="errorCard" class="error-card hidden">
+        <div class="error-icon">!</div>
+        <div>
+          <h3>Something went wrong</h3>
+          <p id="errorText"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Your API key is kept on the server and is never sent to the browser.
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
